@@ -127,9 +127,8 @@ public final class OpenstackStorageServiceWagon extends AbstractWagon {
 
     @Override
     protected void getResource(String resourceName, File destination, TransferProgress progress) throws ResourceDoesNotExistException, IOException {
-        ObjectProperties metadata;
         try {
-            metadata = this.service.getObjectDetails(this.bucket, this.basedir + resourceName);
+            /* ObjectProperties metadata = */this.service.getObjectDetails(this.bucket, this.basedir + resourceName);
         } catch (OpenstackNotFoundException e) {
             throw new ResourceDoesNotExistException("Resource " + resourceName + " does not exist in the repository", e);
         }
