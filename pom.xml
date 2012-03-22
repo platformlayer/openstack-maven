@@ -1,0 +1,77 @@
+<project
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.openstack</groupId>
+	<artifactId>maven-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.1-SNAPSHOT</version>
+	<name>OpenStack Maven Support :: Parent</name>
+	<description>Maven support for OpenStack</description>
+
+	<url>http://www.openstack.org</url>
+
+	<inceptionYear>2012</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<properties>
+		<httpclient.version>3.1</httpclient.version>
+		<wagon.version>2.2</wagon.version>
+		<openstack.version>0.0.1-SNAPSHOT</openstack.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+<modules>
+<module>maven</module>
+</modules>
+
+    <dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openstack</groupId>
+			<artifactId>openstack-api</artifactId>
+			<version>${openstack.version}</version>
+		</dependency>
+<!--
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+-->
+		<dependency>
+			<groupId>org.apache.maven.wagon</groupId>
+			<artifactId>wagon-provider-api</artifactId>
+			<version>${wagon.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+    </dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>openstack-release</id>
+			<name>OpenStack Release Repository</name>
+			<url>openstack://maven.openstack.org/release</url>
+		</repository>
+		<snapshotRepository>
+			<id>openstack-snapshot</id>
+			<name>OpenStack Snapshot Repository</name>
+			<url>openstack://maven.openstack.org/snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
