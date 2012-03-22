@@ -1,5 +1,6 @@
 /*
  * Copyright 2010 SpringSource
+ * Copyright 2012 Justin Santa Barbara
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +50,6 @@ import org.openstack.utils.Io;
  * This implementation uses the <code>username</code> and <code>passphrase</code> portions of the server authentication
  * metadata for credentials.
  * 
- * @author Ben Hale
  */
 public final class OpenstackStorageServiceWagon extends AbstractWagon {
 

@@ -1,5 +1,6 @@
 /*
  * Copyright 2010 SpringSource
+ * Copyright 2012 Justin Santa Barbara
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +22,6 @@ import org.apache.maven.wagon.resource.Resource;
 /**
  * A class that encapsulates the notification of the transfer listeners for Maven Wagon.
  * 
- * @author Ben Hale
  * @since 1.1
  */
 final class TransferProgress {

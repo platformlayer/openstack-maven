@@ -1,5 +1,6 @@
 /*
  * Copyright 2010 SpringSource
+ * Copyright 2012 Justin Santa Barbara
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +28,6 @@ import org.apache.maven.wagon.events.SessionListener;
  * Support for sending messages to Maven session listeners. Automates the collection of listeners and the iteration over
  * that collection when an event is fired.
  * 
- * @author Ben Hale
  */
 final class SessionListenerSupport {
 

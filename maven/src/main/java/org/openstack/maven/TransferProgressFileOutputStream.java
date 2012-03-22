@@ -1,5 +1,6 @@
 /*
  * Copyright 2010 SpringSource
+ * Copyright 2012 Justin Santa Barbara
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +27,6 @@ import java.io.IOException;
  * 
  * @{link TransferProgress} object as it is being written to.
  * 
- * @author Ben Hale
  * @since 1.1
  */
 final class TransferProgressFileOutputStream extends FileOutputStream {
