@@ -60,63 +60,78 @@ abstract class AbstractWagon implements Wagon {
         this.supportsDirectoryCopy = supportsDirectoryCopy;
     }
 
+    @Override
     public final void addSessionListener(SessionListener listener) {
         this.sessionListeners.addListener(listener);
     }
 
+    @Override
     public final boolean hasSessionListener(SessionListener listener) {
         return this.sessionListeners.hasListener(listener);
     }
 
+    @Override
     public final void removeSessionListener(SessionListener listener) {
         this.sessionListeners.removeListener(listener);
     }
 
+    @Override
     public final void addTransferListener(TransferListener listener) {
         this.transferListeners.addListener(listener);
     }
 
+    @Override
     public final boolean hasTransferListener(TransferListener listener) {
         return this.transferListeners.hasListener(listener);
     }
 
+    @Override
     public final void removeTransferListener(TransferListener listener) {
         this.transferListeners.removeListener(listener);
     }
 
+    @Override
     public final Repository getRepository() {
         return this.repository;
     }
 
+    @Override
     public final boolean isInteractive() {
         return this.interactive;
     }
 
+    @Override
     public final void setInteractive(boolean interactive) {
         this.interactive = interactive;
     }
 
+    @Override
     public final void connect(Repository source) throws ConnectionException, AuthenticationException {
         connect(source, null, (ProxyInfoProvider) null);
     }
 
+    @Override
     public final void connect(Repository source, ProxyInfo proxyInfo) throws ConnectionException, AuthenticationException {
         connect(source, null, proxyInfo);
     }
 
+    @Override
     public final void connect(Repository source, AuthenticationInfo authenticationInfo) throws ConnectionException, AuthenticationException {
         connect(source, authenticationInfo, (ProxyInfoProvider) null);
     }
 
+    @Override
     public final void connect(Repository source, ProxyInfoProvider proxyInfoProvider) throws ConnectionException, AuthenticationException {
         connect(source, null, proxyInfoProvider);
     }
 
+    @Override
     public final void connect(Repository source, AuthenticationInfo authenticationInfo, ProxyInfo proxyInfo) throws ConnectionException,
         AuthenticationException {
         final ProxyInfo proxy = proxyInfo;
         connect(source, authenticationInfo, new ProxyInfoProvider() {
 
+            @Override
             public ProxyInfo getProxyInfo(String protocol) {
                 if (protocol == null || proxy == null || protocol.equalsIgnoreCase(proxy.getType())) {
                     return proxy;
@@ -127,6 +142,7 @@ abstract class AbstractWagon implements Wagon {
         });
     }
 
+    @Override
     public final void connect(Repository source, AuthenticationInfo authenticationInfo, ProxyInfoProvider proxyInfoProvider)
         throws ConnectionException, AuthenticationException {
         this.repository = source;
@@ -147,6 +163,7 @@ abstract class AbstractWagon implements Wagon {
         this.sessionListeners.fireSessionOpened();
     }
 
+    @Override
     public final void disconnect() throws ConnectionException {
         this.sessionListeners.fireSessionDisconnecting();
         try {
@@ -162,6 +179,7 @@ abstract class AbstractWagon implements Wagon {
         this.sessionListeners.fireSessionDisconnected();
     }
 
+    @Override
     public final void get(String resourceName, File destination) throws TransferFailedException, ResourceDoesNotExistException,
         AuthorizationException {
         Resource resource = new Resource(resourceName);
@@ -183,6 +201,7 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final List<String> getFileList(String destinationDirectory) throws TransferFailedException, ResourceDoesNotExistException,
         AuthorizationException {
         try {
@@ -199,6 +218,7 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final boolean getIfNewer(String resourceName, File destination, long timestamp) throws TransferFailedException,
         ResourceDoesNotExistException, AuthorizationException {
         Resource resource = new Resource(resourceName);
@@ -221,10 +241,12 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final void openConnection() throws ConnectionException, AuthenticationException {
         // Nothing to do here (never called by the wagon manager)
     }
 
+    @Override
     public final void put(File source, String destination) throws TransferFailedException, ResourceDoesNotExistException, AuthorizationException {
         Resource resource = new Resource(destination);
         this.transferListeners.fireTransferInitiated(resource, TransferEvent.REQUEST_PUT);
@@ -245,6 +267,7 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final void putDirectory(File sourceDirectory, String destinationDirectory) throws TransferFailedException, ResourceDoesNotExistException,
         AuthorizationException {
         for (File f : sourceDirectory.listFiles()) {
@@ -252,6 +275,7 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final boolean resourceExists(String resourceName) throws TransferFailedException, AuthorizationException {
         try {
             return doesRemoteResourceExist(resourceName);
@@ -265,14 +289,17 @@ abstract class AbstractWagon implements Wagon {
         }
     }
 
+    @Override
     public final boolean supportsDirectoryCopy() {
         return this.supportsDirectoryCopy;
     }
 
+    @Override
     public final int getTimeout() {
         return this.timeout;
     }
 
+    @Override
     public final void setTimeout(int timeout) {
         this.timeout = timeout;
     }
@@ -343,10 +370,12 @@ abstract class AbstractWagon implements Wagon {
      */
     protected abstract void putResource(File source, String destination, TransferProgress progress) throws Exception;
 
+    @Override
     public int getReadTimeout() {
-        return readTimeout;
+        return this.readTimeout;
     }
 
+    @Override
     public void setReadTimeout(int readTimeout) {
         this.readTimeout = readTimeout;
     }

@@ -29,7 +29,6 @@ import org.apache.maven.wagon.resource.Resource;
  * Support for sending messages to Maven transfer listeners. Automates the collection of listeners and the iteration
  * over that collection when an event is fired.
  * 
- * @author Ben Hale
  */
 final class TransferListenerSupport {
 

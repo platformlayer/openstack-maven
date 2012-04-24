@@ -3,8 +3,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.openstack</groupId>
-    <artifactId>maven-parent</artifactId>
+    <groupId>org.platformlayer</groupId>
+    <artifactId>openstack-maven-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
     <name>OpenStack Maven Support :: Parent</name>
@@ -25,22 +25,22 @@
     <properties>
         <httpclient.version>3.1</httpclient.version>
         <wagon.version>2.2</wagon.version>
-        <openstack.version>0.0.1-SNAPSHOT</openstack.version>
+        <openstack.api.version>0.1-SNAPSHOT</openstack.api.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
-        <module>maven</module>
+        <module>openstack-maven</module>
     </modules>
 
     <dependencyManagement>
 
         <dependencies>
             <dependency>
-                <groupId>org.openstack</groupId>
+                <groupId>org.platformlayer</groupId>
                 <artifactId>openstack-api</artifactId>
-                <version>${openstack.version}</version>
+                <version>${openstack.api.version}</version>
             </dependency>
 <!--
 		<dependency>

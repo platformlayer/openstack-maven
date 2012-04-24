@@ -244,7 +244,7 @@ public final class OpenstackStorageServiceWagon extends AbstractWagon {
         }
 
         // String authUrl = source.getUrl();
-        if (authUrl == null) {
+        if (this.authUrl == null) {
             throw new AuthenticationException("OpenStack Storage requires a authUrl to be set");
         }
 
@@ -258,11 +258,11 @@ public final class OpenstackStorageServiceWagon extends AbstractWagon {
         if (accessKey == null || secretKey == null) {
             throw new AuthenticationException("OpenStack Storage requires a username and passphrase to be set");
         }
-        return new OpenstackCredentials(authUrl, accessKey, secretKey, tenant);
+        return new OpenstackCredentials(this.authUrl, accessKey, secretKey, this.tenant);
     }
 
     public String getTenant() {
-        return tenant;
+        return this.tenant;
     }
 
     public void setTenant(String tenant) {
@@ -270,7 +270,7 @@ public final class OpenstackStorageServiceWagon extends AbstractWagon {
     }
 
     public String getAuthUrl() {
-        return authUrl;
+        return this.authUrl;
     }
 
     public void setAuthUrl(String authUrl) {

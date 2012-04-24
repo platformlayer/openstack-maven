@@ -4,17 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.openstack</groupId>
-        <artifactId>maven-parent</artifactId>
+        <groupId>org.platformlayer</groupId>
+        <artifactId>openstack-maven-parent</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>maven</artifactId>
+    <artifactId>openstack-maven</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.openstack</groupId>
+            <groupId>org.platformlayer</groupId>
             <artifactId>openstack-api</artifactId>
         </dependency>
         <dependency>
